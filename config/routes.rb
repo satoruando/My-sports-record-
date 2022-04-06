@@ -23,11 +23,12 @@ Rails.application.routes.draw do
 
   scope module: :member do
     resources :videos, only: [:index, :show, :destroy]
-    resources :users, only: [:show, :edit, :update]
-    collection do
+    resources :users, only: [:show, :edit, :update] do
+      collection do
         get 'users/unsubscribe'
         patch 'users/withdraw'
       end
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
