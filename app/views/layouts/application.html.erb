@@ -11,6 +11,49 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span>My sports record</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <%# ユーザーログイン後のヘッダー%>
+            <% if member_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Home', videos_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'マイページ', user_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '投稿フォーム', video_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            <%# ログイン前のヘッダー(ユーザー、管理者共通)　%>
+            <% else %>
+              <li>
+                <%= link_to "about", about_path, class: 'nav-link text-dark' %>
+              </li>
+              <li>
+                <%= link_to '新規登録', new_member_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_member_session_path, class: 'nav-link text-dark' %>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>
