@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateMembers < ActiveRecord::Migration[6.1]
+class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
   def change
-    create_table :members do |t|
+    create_table :admins do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -31,16 +31,14 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      ## 名前を保存するカラム
-      t.string :name
-      
+
 
       t.timestamps null: false
     end
 
-    add_index :members, :email,                unique: true
-    add_index :members, :reset_password_token, unique: true
-    # add_index :members, :confirmation_token,   unique: true
-    # add_index :members, :unlock_token,         unique: true
+    add_index :admins, :email,                unique: true
+    add_index :admins, :reset_password_token, unique: true
+    # add_index :admins, :confirmation_token,   unique: true
+    # add_index :admins, :unlock_token,         unique: true
   end
 end

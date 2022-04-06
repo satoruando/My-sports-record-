@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :members
+  # 管理者用
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  # 顧客用
+  devise_for :member, skip: [:passwords] ,controllers: {
+    registrations: "member/registrations",
+    sessions: 'member/sessions'
+  }
 
   root 'homes#index'
 
