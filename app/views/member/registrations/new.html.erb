@@ -1,29 +1,55 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "member/shared/error_messages", resource: resource %>
+  <body class="text-center">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h1 class="h3 mb-3 fw-normal">Please sign-up</h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <!--名前-->
+        <div class="row form-group">
+          <%= f.label "名前", class: "col-form-label col-md-3" %>
+          <%= f.label :last_name, "（姓）", class: "col-form-label col-sm-1"%>
+          <%= f.text_field :last_name, autofocus: true, :placeholder => "室伏", class: "form-control col-sm-3" %>
+          <%= f.label :first_name, "（名）", class: "col-form-label col-sm-1"%>
+          <%= f.text_field :first_name, autofocus: true, :placeholder => "広治", class: "form-control col-sm-3" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <!--フリガナ-->
+        <div class="row form-group">
+          <%= f.label "フリガナ", class: "col-form-label col-md-3" %>
+          <%= f.label :last_name_kana, "（セイ）", class: "col-form-label col-sm-1" %>
+          <%= f.text_field :last_name_kana, :placeholder => "ムロフシ", class: "form-control col-sm-3" %>
+          <%= f.label :first_name_kane, "（メイ）", class: "col-form-label col-sm-1" %>
+          <%= f.text_field :first_name_kana, :placeholder => "コウジ", class: "form-control col-sm-3" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <!--メールアドレス-->
+        <div class="row form-group">
+          <%= f.label :email, "メールアドレス", class: "col-form-label col-md-4"%>
+          <%= f.email_field :email, autofocus: true, :placeholder => "muromuro@example.com", class: "form-control col-sm-3" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <!--パスワード-->
+        <div class="row form-group">
+          <%= f.label :password, "パスワード(6文字以上)", class: "col-form-label col-md-4" %>
+          <%= f.password_field :password, autocomplete: "off", class: "password form-control col-md-4" %>
+        </div>
 
-<%= render "member/shared/links" %>
+        <!--パスワード（確認）-->
+        <div class="row form-group">
+          <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-form-label col-md-4" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "password_confirm form-control col-md-4" %>
+        </div>
+
+        <!--チェックボックス-->
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <!--ボタン-->
+        <div class="actions mx-auto">
+          <%= f.submit "新規登録", class: 'btn btn-sm btn-success col-md-1' %>
+        </div>
+
+        <% end %>
+  </body>
