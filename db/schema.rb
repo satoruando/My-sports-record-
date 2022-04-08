@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_055505) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.boolean "is_deleted", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_055505) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "video_id"
-    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x0000000003a24f60>"
+    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000648c320>"
   end
 
   create_table "videos", force: :cascade do |t|
