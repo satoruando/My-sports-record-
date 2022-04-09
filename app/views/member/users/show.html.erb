@@ -1,2 +1,9 @@
-<h1>Member::Users#show</h1>
-<p>Find me in app/views/member/users/show.html.erb</p>
+<h1>ユーザーが投稿動画</h1>
+
+<% @videos.each do |video| %>
+  <% if video.video.attached? %>
+    <p><%= video.title %></p> <br>
+    <p><%= video.explanation %></p>
+    <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+  <% end %>
+<% end %>

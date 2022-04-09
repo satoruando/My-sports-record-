@@ -1,0 +1,12 @@
+<div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <h5 class="text-dark bg-light p-4 mb-0">動画投稿フォーム</h5>
+      <div class="form-body p-4">
+      <%= form_with model: @video, local: true do |form| %>
+        <p>video</p><%= form.file_field :video %> <br>
+        <p>title</p><%= form.text_field :title %> <br>
+        <p>explanation</p><%= form.text_area :explanation %> <br>
+        <p>genre<p><%= form.select :genre_id, [['野球', 1], ['sample2', 2], ['sample3', 3]] %> <br>
+        <%= form.submit %>
+      <% end %>
+      </div>
+</div>

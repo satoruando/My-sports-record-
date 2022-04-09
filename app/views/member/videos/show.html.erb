@@ -1,2 +1,8 @@
-<h1>Member::Videos#show</h1>
-<p>Find me in app/views/member/videos/show.html.erb</p>
+<h1>投稿詳細画面</h1>
+
+  <% if @video.video.attached? %>
+    <p><%= @video.title %></p> <br>
+    <p><%= @video.explanation %></p>
+    <video src="<%= rails_blob_path(@video.video) %>" type="video/mp4" controls></video>
+  <% end %>
+  

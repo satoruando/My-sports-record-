@@ -1,5 +1,6 @@
 class Member::UsersController < ApplicationController
   def show
+    @videos = Video.where(member_id: params[:id])
   end
 
   def edit
