@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :member do
-    resources :videos, only: [:index, :show, :destroy]
+    resources :videos, only: [:index, :new, :show, :create, :destroy]
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'users/unsubscribe'

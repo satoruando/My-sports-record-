@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 2022_04_06_055505) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "video_id"
-    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000648c320>"
+    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000508e760>"
   end
 
   create_table "videos", force: :cascade do |t|
     t.integer "member_id", null: false
     t.integer "genre_id", null: false
+    t.string "title"
     t.text "explanation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
