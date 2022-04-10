@@ -1,5 +1,20 @@
-<h1>ユーザーが投稿動画</h1>
 
+<!-- ユーザーの詳細 -->
+<div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
+  <% if @member.image.attached? %>
+    <%= image_tag @member.image, size: "100x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100x100" %>
+  <% end %>
+  <h3><%= @member.last_name %></h3>
+  <h3><%= @member.first_name %></h3>
+  <div class="mt-auto">
+    <p><%= link_to "プロフィール編集", edit_user_path(@member) %></p>
+  </div>
+</div>
+
+<h2 class="text-center">MY MOVE</h2>
+<!-- ユーザーの投稿動画一覧 -->
 <div class="card-list-container py-5">
   <% @videos.each do |video| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">

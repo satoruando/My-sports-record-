@@ -1,12 +1,33 @@
-<div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-    <h5 class="text-dark bg-light p-4 mb-0">動画投稿フォーム</h5>
-      <div class="form-body p-4">
-      <%= form_with model: @video, local: true do |form| %>
-        <p>video</p><%= form.file_field :video %> <br>
-        <p>title</p><%= form.text_field :title %> <br>
-        <p>explanation</p><%= form.text_area :explanation %> <br>
-        <p>genre<p><%= form.select :genre_id, [['野球', 1], ['sample2', 2], ['sample3', 3]] %> <br>
-        <%= form.submit %>
-      <% end %>
-      </div>
+
+ <div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+        <h5 class="text-dark bg-light p-4 mb-0">動画投稿フォーム</h5>
+          <div class="form-body p-4">
+            <%= form_with model: @video, local: true do |form| %>
+            <div class="p-2">
+              <!--投稿フォーム-->
+              <%= form.file_field :video %>
+            </div>
+            <div class="p-2">
+              <!--タイトル-->
+              <%= form.text_field :title, autofocus: true, :placeholder => "title" %> <br>
+            </div>
+            <div class="p-2">
+              <!--説明-->
+              <%= form.text_area :explanation, autofocus: true, :placeholder => "explanation" %>
+            </div>
+            <div class="p-2">
+              <p>genre<p>
+                <!--ジャンル-->
+                <%= form.select :genre_id, [['ラグビー', 1], ['野球', 2], ['サッカー', 3]] %> <br>
+            </div>
+            <div class="p-2">
+              <!--ボタン-->
+              <%= form.submit "投稿をする", class: 'btn btn-sm btn-success col-md-6' %>
+            </div>
+            <% end %>
+          </div>
+    </div>
+  </div>
 </div>
