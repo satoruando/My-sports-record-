@@ -1,8 +1,24 @@
 <h1>投稿詳細画面</h1>
 
-  <% if @video.video.attached? %>
-    <p><%= @video.title %></p> <br>
-    <p><%= @video.explanation %></p>
-    <video src="<%= rails_blob_path(@video.video) %>" type="video/mp4" controls></video>
-  <% end %>
-  
+<div class="card-list-container py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <% if @video.video.attached? %>
+      <video src="<%= rails_blob_path(@video.video) %>" type="video/mp4" controls ></video>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+            <%= @video.title %>
+          </p>
+          <p class="card-text">説明：<%= @video.explanation %></p>
+          <p><%= @video.created_at %></p>
+          <p><%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <%#= paginate post_images %>
+</div>

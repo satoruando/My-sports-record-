@@ -18,6 +18,9 @@ class Member::VideosController < ApplicationController
   end
 
   def destroy
+    @video = Video.find(params[:id])
+    @video.destroy
+    redirect_to new_video_path
   end
 
   private
