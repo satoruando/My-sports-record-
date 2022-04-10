@@ -26,10 +26,10 @@
                 <%= link_to 'Home', videos_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= link_to 'マイページ', videos_path, class: 'nav-link text-dark' %>
+                <%= link_to 'マイページ', user_path(current_member.id), class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%# link_to '投稿フォーム', video_id_path, class: 'nav-link text-dark' %>
+                <%= link_to '投稿フォーム', new_video_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link text-dark' %>
