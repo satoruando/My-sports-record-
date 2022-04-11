@@ -1,9 +1,15 @@
 class Member::VideosController < ApplicationController
   def index
+    @genres = Genre.all
+    @videos = Video.all
+    if params[:genre_id] != nil
+      @videos = Video.where(genre_id: params[:genre_id])
+    end
   end
 
   def new
     @video = Video.new
+    @genres = Genre.all
   end
 
   def create
@@ -14,6 +20,7 @@ class Member::VideosController < ApplicationController
   end
 
   def show
+    @genres = Genre.all
     @video = Video.find(params[:id])
     @comment = Comment.new
   end

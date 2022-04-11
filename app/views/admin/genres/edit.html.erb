@@ -1,2 +1,28 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<% if @genre.errors.any? %>
+  <%= @genre.errors.count %>件が未入力です！！！
+  <ul>
+    <% @genre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-3 mb-5">
+      <h5 class="text-center bg-secondary text-light mt-5">ジャンル編集</h5>
+   </div>
+ </div>
+
+  <div class="row">
+    <div class="col-8 mb-5">
+      <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
+        <%= f.label :ジャンル名, class: "font-weight-bold" %>
+        <%= f.text_field :genre_name, class: "offset-1" %>
+        <%= f.submit "変更を保存", class: "btn btn-success offset-1" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

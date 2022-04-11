@@ -1,7 +1,7 @@
 class Member::CommentsController < ApplicationController
   def create
     video = Video.find(params[:video_id])
-    comment = current_member.comment.new(comment_params)
+    comment = current_member.comments.new(comment_params)
     comment.video_id = video.id
     comment.save
     redirect_to video_path(video.id)
