@@ -15,6 +15,7 @@ class Member::VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
