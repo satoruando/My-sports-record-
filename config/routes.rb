@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   scope module: :member do
     resources :videos, only: [:index, :new, :show, :create, :destroy] do
+      resource :nices, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update] do

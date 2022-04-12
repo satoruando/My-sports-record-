@@ -21,6 +21,7 @@ class Member::VideosController < ApplicationController
 
   def show
     @genres = Genre.all
+    @member = Member.find(params[:id])
     @video = Video.find(params[:id])
     @comment = Comment.new
   end
@@ -35,6 +36,10 @@ class Member::VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit(:title, :explanation, :video, :genre_id)
+  end
+  
+  def member_params
+    params.require(:member).permit(:last_name, :first_name, :image)
   end
 
 end

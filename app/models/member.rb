@@ -9,6 +9,8 @@ class Member < ApplicationRecord
   has_one_attached :image
   #コメント機能
   has_many :comments, dependent: :destroy
+  #いいね機能
+  has_many :nices, dependent: :destroy
 
   def get_image(width, height)
     unless profile_image.attached?
