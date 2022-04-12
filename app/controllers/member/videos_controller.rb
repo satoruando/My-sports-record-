@@ -37,7 +37,7 @@ class Member::VideosController < ApplicationController
   def video_params
     params.require(:video).permit(:title, :explanation, :video, :genre_id)
   end
-  
+
   def member_params
     params.require(:member).permit(:last_name, :first_name, :image)
   end
