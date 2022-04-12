@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_034803) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "video_id"
-    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000508e760>"
+    t.integer "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x0000000005e297d0>"
   end
 
   create_table "videos", force: :cascade do |t|
