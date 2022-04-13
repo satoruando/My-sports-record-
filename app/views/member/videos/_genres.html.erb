@@ -1,9 +1,15 @@
 
-  <ul class="list-group">
-    <li class="list-group-item bg-light">ジャンル検索</li>
-    <% genres.each do |genre| %>
-      <%= link_to videos_path(genre_id: genre.id) do %>
-      <li class="list-group-item bg-transparent bg-gradient text-dark", style="text-decoration: underline;"><%= genre.genre_name %></li>
-      <% end %>
-    <% end %>
-  </ul>
+  <div class="container">
+    <nav class="footer-nav">
+      <div class="column">
+        <p class="title">ジャンル検索</p>
+        <ul class="footer-link-list">
+          <% genres.each do |genre| %>
+            <%= link_to videos_path(genre_id: genre.id) do %>
+              <li class="text-dark", style="text-decoration: underline;"><%= genre.genre_name %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
