@@ -21,22 +21,14 @@
                 <p class="card-text">説明：<%= @video.explanation %></p>
                 <span>|<%= @video.created_at.strftime('%Y/%m/%d') %></span>
                 <span>|コメント件数：<%= @video.comments.count %>|</span>
-                <span>
-                <% if @video.niced_by?(current_member) %>
-                  <a>
-                    <%= link_to video_nices_path(@video), method: :delete do %>
-                      ♥<%= @video.nices.count %>
-                    <% end %>
-                  </a>
-                  <% else %>
-                  <a>
-                    <%= link_to video_nices_path(@video), method: :post do %>
-                      ♡<%= @video.nices.count %>
-                    <% end %>|
-                  </a>
-                <% end %>
+                <span id="video_<%= @video.id %>">
+                <%= render 'member/nices/nice_btn', video: @video %>
                 </span>
-                <span><%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|</span>
+                <span>
+                  <% if @video == current_member %>
+                    |<%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|
+                  <% end %>
+                  </span>
 
               <div class="comments card-text">
                 <h4 class="mt-3">コメント</h4>

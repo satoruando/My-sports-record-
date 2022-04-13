@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   #チーム開発カリキュラム詳細設計
   namespace :admin do
-    resources :customers, only: [:index, :show, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 

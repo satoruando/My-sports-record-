@@ -1,0 +1,9 @@
+<% if video.niced_by?(current_member) %>
+  <%= link_to video_nices_path(video), method: :delete, remote: true do %>
+    ♥<%= video.nices.count %>
+  <% end %>
+  <% else %>
+  <%= link_to video_nices_path(video), method: :post, remote: true do %>
+    ♡<%= video.nices.count %>
+  <% end %>
+<% end %>
