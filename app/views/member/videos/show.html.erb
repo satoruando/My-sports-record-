@@ -36,7 +36,11 @@
                   </a>
                 <% end %>
                 </span>
-                <span>|<%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|</span>
+                <span>
+                  <% if @video == current_member %>
+                    |<%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|
+                  <% end %>
+                  </span>
 
               <div class="comments card-text">
                 <h4 class="mt-3">コメント</h4>
