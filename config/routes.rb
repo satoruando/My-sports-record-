@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :member do
+    get "search" => "searches#search"
     resources :videos, only: [:index, :new, :show, :create, :destroy] do
       resource :nices, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
