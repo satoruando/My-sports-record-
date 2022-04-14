@@ -1,7 +1,7 @@
 <h1>投稿詳細画面</h1>
 
 <div class="mb-auto">
-  <div class="post-detail py-5 bg-light">
+  <div class="post-detail py-5">
       <div class="card w-50 mx-auto mt-4 shadow-lg">
         <% if @video.video.attached? %>
           <video src="<%= rails_blob_path(@video.video) %>" type="video/mp4" controls ></video>
