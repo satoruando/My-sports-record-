@@ -25,4 +25,19 @@ class Member < ApplicationRecord
     super && (is_deleted == false)
   end
 
+  #検索機能
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @member = Member.where("last_name LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @member = Member.where("last_name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @member = Member.where("last_name LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @member = Member.where("last_name LIKE?","%#{word}%")
+    else
+      @member = Member.all
+    end
+  end
+
 end
