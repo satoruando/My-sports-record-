@@ -1,4 +1,5 @@
 class Member::UsersController < ApplicationController
+
   def show
     @genres = Genre.all
     @member = Member.find(params[:id])
@@ -25,6 +26,13 @@ class Member::UsersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
+  end
+
+  #いいね一覧
+  def nices
+    @member = Member.find(params[:id])
+    nices= Nice.where(member_id: @member.id).pluck(:video_id)
+    @nice_videos = Video.find(nices)
   end
 
   private
