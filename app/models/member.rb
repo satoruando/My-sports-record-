@@ -40,4 +40,17 @@ class Member < ApplicationRecord
     end
   end
 
+  #ゲストログイン機能
+  def self.guest
+    find_or_create_by!(last_name: 'ゲスト' ,email: 'guest@example.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.last_name = "ゲスト"
+      member.first_name = "太郎"
+      member.last_name_kana = "ゲスト"
+      member.first_name_kana = "タロウ"
+      member.email = "guest@example.com"
+
+    end
+  end
+
 end
