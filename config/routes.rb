@@ -32,6 +32,9 @@ Rails.application.routes.draw do
         get 'users/unsubscribe'
         patch 'users/withdraw'
       end
+      member do
+      get :nices
+      end
     end
   end
 

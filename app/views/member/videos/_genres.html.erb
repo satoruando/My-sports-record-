@@ -6,7 +6,7 @@
         <ul class="footer-link-list">
           <% genres.each do |genre| %>
             <%= link_to videos_path(genre_id: genre.id) do %>
-              <li class="text-dark", style="text-decoration: underline;"><%= genre.genre_name %></li>
+              <p class="text-dark", style="text-decoration: underline;"><%= genre.genre_name %></p>
             <% end %>
           <% end %>
         </ul>
