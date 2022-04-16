@@ -10,12 +10,13 @@
   <h3><%= @member.first_name %></h3>
   <div class="mt-auto">
     <p><%= link_to "プロフィール編集", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    <p><%=link_to"いいね記事",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
   </div>
 </div>
-<p><%=link_to"いいね記事",nices_user_path(@member) %></p>
-<h2 class="text-center">MY MOVE</h2>
-<!-- ユーザーの投稿動画一覧 -->
 
+
+<!-- ユーザーの投稿動画一覧 -->
+<h2 class="text-center">MY MOVE</h2>
   <div class="album py-5">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
