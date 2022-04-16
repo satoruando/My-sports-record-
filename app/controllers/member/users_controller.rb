@@ -1,4 +1,5 @@
 class Member::UsersController < ApplicationController
+  before_action :ensure_guest_member, only: [:edit]
 
   def show
     @genres = Genre.all
@@ -39,6 +40,14 @@ class Member::UsersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:last_name, :first_name, :image)
+  end
+
+  #ゲストログイン機能
+  def ensure_guest_member
+    @member = Member.find(params[:id])
+    if @member.last_name == "ゲスト"
+      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
 end

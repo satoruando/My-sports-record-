@@ -9,7 +9,9 @@
   <h3><%= @member.last_name %></h3>
   <h3><%= @member.first_name %></h3>
   <div class="mt-auto">
+    <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
     <p><%= link_to "プロフィール編集", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    <% end %>
     <p><%=link_to"いいね記事",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
   </div>
 </div>

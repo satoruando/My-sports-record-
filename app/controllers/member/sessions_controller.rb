@@ -25,6 +25,12 @@ class Member::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  def guest_sign_in
+    member = Member.guest
+    sign_in member
+    redirect_to videos_path, notice: 'guest-memberでログインしました。'
+  end
+
   protected
 
   def reject_member
