@@ -46,7 +46,7 @@ class Member::UsersController < ApplicationController
   def ensure_guest_member
     @member = Member.find(params[:id])
     if @member.last_name == "ゲスト"
-      redirect_to member_session_path(current_member) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 
