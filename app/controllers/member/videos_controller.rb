@@ -3,7 +3,7 @@ class Member::VideosController < ApplicationController
     @genres = Genre.all
     @videos = Video.page(params[:page])#ページネーション
     if params[:genre_id] != nil
-      @videos = Video.where(genre_id: params[:genre_id])
+      @videos = Video.where(genre_id: params[:genre_id]).page(params[:page])#ページネーション
     end
   end
 

@@ -16,7 +16,6 @@
   </div>
 </div>
 
-
 <!-- ユーザーの投稿動画一覧 -->
 <h2 class="text-center">MY MOVE</h2>
   <div class="album py-5">
@@ -37,10 +36,7 @@
             </div>
           </div>
         <% end %>
-        <%#= paginate post_images %>
       </div>
     </div>
+    <%= paginate @videos %>
   </div>
-
-<!-- フッタージャンル -->
-  <%= render "member/videos/genres", genres: @genres %>

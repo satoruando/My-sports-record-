@@ -28,7 +28,7 @@ class Member::SessionsController < Devise::SessionsController
   def guest_sign_in
     member = Member.guest
     sign_in member
-    redirect_to videos_path, notice: 'guest-memberでログインしました。'
+    redirect_to user_path(current_member), notice: 'guest-memberでログインしました。'
   end
 
   protected

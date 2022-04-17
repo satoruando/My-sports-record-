@@ -1,3 +1,5 @@
+<!-- ジャンル一覧 -->
+<p class="text-center"><%= render "member/videos/genres", genres: @genres %></p>
 
 <div class="card-list-container py-5">
   <% @videos.each do |video| %>
@@ -19,10 +21,5 @@
     </div>
   </div>
   <% end %>
-  <!--<div class="center">-->
-   <%= paginate @videos %>
-  <!--</div>-->
+  <%= paginate @videos %>
 </div>
-
-<!-- フッタージャンル -->
-<%= render "member/videos/genres", genres: @genres %>

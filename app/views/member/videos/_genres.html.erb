@@ -1,15 +1,11 @@
 
-  <div class="container, shadow-sm">
-    <nav class="footer-nav, text-right">
-      <div class="column">
-        <p class="title">ジャンル検索</p>
-        <ul class="footer-link-list">
-          <% genres.each do |genre| %>
-            <%= link_to videos_path(genre_id: genre.id) do %>
-              <p class="text-dark", style="text-decoration: underline;"><%= genre.genre_name %></p>
-            <% end %>
+  <div class="text-center">
+    <p class="title">ジャンル検索</p>
+    <div class="genre-name">
+        <% genres.each do |genre| %>
+          <%= link_to videos_path(genre_id: genre.id) do %>
+            <span class="text-dark px-2">・<%= genre.genre_name %></span>
           <% end %>
-        </ul>
-      </div>
-    </nav>
+        <% end %>
+    </div>
   </div>

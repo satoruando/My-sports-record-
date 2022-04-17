@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+header {
+background-color: #ccc;
+}
+
 body {
   background: url('siba.jpeg');
   background-size: 100% auto;
