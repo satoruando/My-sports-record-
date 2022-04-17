@@ -1,7 +1,7 @@
 class Member::VideosController < ApplicationController
   def index
     @genres = Genre.all
-    @videos = Video.all
+    @videos = Video.page(params[:page])#ページネーション
     if params[:genre_id] != nil
       @videos = Video.where(genre_id: params[:genre_id])
     end
