@@ -11,7 +11,7 @@
 
   <div class="row">
     <div class="col-3 mb-5">
-      <h5 class="text-center bg-secondary text-light mt-5">ジャンル一覧・追加</h5>
+      <h5 class="text-center bg-primary text-light mt-5">ジャンル一覧・追加</h5>
     </div>
   </div>
 
@@ -27,17 +27,17 @@
 
   <div class="row">
     <div class="col-5 mb-5">
-      <table class="table ">
+      <table class="table">
         <thead>
-          <tr class="bg-light">
+          <tr class="bg-info">
             <th>ジャンル</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @genres.each do |genre| %>
-            <tr>
-              <td class="ad-name"><%= genre.genre_name %></td>
+            <tr class="bg-light">
+              <td><%= genre.genre_name %></td>
               <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success offset-6" %></td>
             </tr>
           <% end %>

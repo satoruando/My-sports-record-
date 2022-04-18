@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post 'member/guest_sign_in', to: 'member/sessions#guest_sign_in'
   end
 
-  root 'homes#index'
+  root 'homes#top'
 
   get '/about', to: 'homes#about'
 

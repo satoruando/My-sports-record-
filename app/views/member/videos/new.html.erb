@@ -1,8 +1,17 @@
+  <!--バリデーション-->
+  <% if @video.errors.any? %>
+    <%= @video.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
  <div class="container">
   <div class="row">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center px-0 my-5">
-        <h5 class="text-dark p-4 mb-0 hoge">動画投稿フォーム</h5>
+        <h5 class="text-dark p-4 mb-0 sabu-name">動画投稿フォーム</h5>
           <div class="form-body p-4">
             <%= form_with model: @video, local: true do |form| %>
             <div class="p-2">
