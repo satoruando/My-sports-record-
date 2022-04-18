@@ -1,7 +1,8 @@
 <!-- ジャンル一覧 -->
 <p class="text-center"><%= render "member/videos/genres", genres: @genres %></p>
 
-<div class="card-list-container py-5">
+<h3 class="text-center sabu-name">New Video</h3>
+<div class="card-list-container">
   <% @videos.each do |video| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <% if video.video.attached? %>

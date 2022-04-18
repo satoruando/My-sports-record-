@@ -3,8 +3,11 @@ class Video < ApplicationRecord
   belongs_to :member
   has_many :comments, dependent: :destroy
   belongs_to :genre
-
   has_many :nices, dependent: :destroy
+
+  validates :title, presence: true
+  validates :explanation, presence: true
+  validates :video, presence: true
 
   def niced_by?(member)
     nices.exists?(member_id: member.id)
