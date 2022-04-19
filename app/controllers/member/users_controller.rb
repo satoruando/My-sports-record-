@@ -4,7 +4,7 @@ class Member::UsersController < ApplicationController
   def show
     @genres = Genre.all
     @member = Member.find(params[:id])
-    @videos = Video.where(member_id: params[:id]).page(params[:page])#ページネーション
+    @videos = Video.where(member_id: params[:id]).order(id: "DESC").page(params[:page])#ページネーション
   end
 
   def edit
@@ -33,7 +33,7 @@ class Member::UsersController < ApplicationController
   def nices
     @member = Member.find(params[:id])
     nices= Nice.where(member_id: @member.id).pluck(:video_id)
-    @nice_videos = Video.find(nices)
+    @nice_videos = Kaminari.paginate_array(Video.find(nices)).page(params[:page]).per(1) # FIXME: per
   end
 
   private

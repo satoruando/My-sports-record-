@@ -20,8 +20,11 @@ header {
 
 body {
   background: url('siba2.jpeg');
-  background-size: 100% auto;
-  background-repeat: repeat-y;
+  // background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
 }
 
 .pagination {
