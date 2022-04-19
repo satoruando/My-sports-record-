@@ -1,6 +1,7 @@
 class Member::VideosController < ApplicationController
   def index
     @genres = Genre.all
+    #@member = Member.find(params[:id])
     @videos = Video.order(id: "DESC").page(params[:page])#順番・ページネーション
     if params[:genre_id] != nil
       @videos = Video.where(genre_id: params[:genre_id]).order(id: "DESC").page(params[:page])#順番・ページネーション
@@ -26,7 +27,6 @@ class Member::VideosController < ApplicationController
 
   def show
     @genres = Genre.all
-    @member = Member.find(params[:id])
     @video = Video.find(params[:id])
     @comment = Comment.new
   end
@@ -41,10 +41,6 @@ class Member::VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit(:title, :explanation, :video, :genre_id)
-  end
-
-  def member_params
-    params.require(:member).permit(:last_name, :first_name, :image)
   end
 
 end

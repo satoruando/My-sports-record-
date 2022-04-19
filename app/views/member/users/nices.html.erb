@@ -1,23 +1,26 @@
-<h2 class="text-center">いいね一覧</h2>
-<div class="card-list-container py-5">
-  <% @nice_videos.each do |video|%>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <% if video.video.attached? %>
-      <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to video.title, video_path(video.id) %>
-          </p>
-          <p class="card-text">説明：<%= video.explanation %></p>
-        </div>
+
+<h3 class="text-center p-3 sabu-name">いいね一覧</h3>
+  <div class="album py-4">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @nice_videos.each do |video|%>
+          <div class="col">
+            <div class="card shadow-sm">
+              <% if video.video.attached? %>
+                <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+                <div class="card-body">
+                  <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
+                  <p class="card-text">説明：<%= video.explanation %></p>
+                  <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                  <span>|コメント件数：<%= video.comments.count %>|</span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="p-5">
+    <%= paginate @nice_videos %>
     </div>
   </div>
-  <% end %>
-  <%#= paginate post_images %>
-</div>

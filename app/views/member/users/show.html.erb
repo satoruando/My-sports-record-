@@ -17,8 +17,8 @@
 </div>
 
 <!-- ユーザーの投稿動画一覧 -->
-<h3 class="text-center sabu-name">MY MOVE</h3>
-  <div class="album py-5">
+<h3 class="text-center p-3 sabu-name">MY MOVE</h3>
+  <div class="album py-4">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <% @videos.each do |video| %>
@@ -38,5 +38,7 @@
         <% end %>
       </div>
     </div>
+    <div class="p-5">
     <%= paginate @videos %>
+    </div>
   </div>
