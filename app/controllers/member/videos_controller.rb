@@ -16,7 +16,6 @@ class Member::VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.member_id = current_member.id
-    # binding.irb
     if @video.save
       redirect_to user_path(current_member.id)
     else
