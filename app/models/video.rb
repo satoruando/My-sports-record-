@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
   has_one_attached :video
+
   belongs_to :member
   has_many :comments, dependent: :destroy
   belongs_to :genre
@@ -8,6 +9,8 @@ class Video < ApplicationRecord
   validates :title, presence: true
   validates :explanation, presence: true
   validates :video, presence: true
+  #サイズバリデーション
+  validate :size_validation
 
   def niced_by?(member)
     nices.exists?(member_id: member.id)
@@ -26,6 +29,11 @@ class Video < ApplicationRecord
     else
       @video = Video.all
     end
+  end
+
+  #サイズバリデーション
+  def size_validation
+    errors.add(:video,'の容量が大きいです') if video.blob.byte_size > 200.megabytes#約２分
   end
 
 end

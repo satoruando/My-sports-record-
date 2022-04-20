@@ -1,5 +1,5 @@
 
-<h3 class="text-center p-3 sabu-name">いいね一覧</h3>
+<h3 class="text-center p-3 sabu-name shadow_green">いいね一覧</h3>
   <div class="album py-4">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -9,10 +9,19 @@
               <% if video.video.attached? %>
                 <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
                 <div class="card-body">
-                  <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
-                  <p class="card-text">説明：<%= video.explanation %></p>
-                  <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
-                  <span>|コメント件数：<%= video.comments.count %>|</span>
+                  <div class="col-2">
+                    <% if video.member.image.attached? %>
+                      <%= image_tag video.member.image, size: "60x60" %>
+                    <% else %>
+                      <%= image_tag 'no_image', size: "60x60" %>
+                    <% end %>
+                  </div>
+                  <div class="col-10">
+                    <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
+                    <p class="card-text">説明：<%= video.explanation %></p>
+                    <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                    <span>|コメント件数：<%= video.comments.count %>|</span>
+                  </div>
                 </div>
               <% end %>
             </div>
