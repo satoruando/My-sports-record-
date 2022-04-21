@@ -28,7 +28,7 @@
                   </td>
                   <td><%= member.email %></td>
                   <td>
-                    <%if member.is_deleted == true %>
+                    <%if member.is_deleted == false %>
                       <span class="text-success font-weight-bold">有効</span>
                     <% else %>
                      <span class="text-secondary font-weight-bold">退会済</span>
@@ -38,7 +38,7 @@
             <% end %>
           </tbody>
       </table>
-      <div><%#= paginate @member %></div>
+      <div><%= paginate @members %></div>
     </div>
   </div>
 
