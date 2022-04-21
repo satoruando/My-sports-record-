@@ -1,7 +1,6 @@
 class Member::VideosController < ApplicationController
   def index
     @genres = Genre.all
-    #@member = Member.find(params[:id])
     @videos = Video.order(id: "DESC").page(params[:page])#順番・ページネーション
     if params[:genre_id] != nil
       @videos = Video.where(genre_id: params[:genre_id]).order(id: "DESC").page(params[:page])#順番・ページネーション
