@@ -24,15 +24,17 @@
         <% @videos.each do |video| %>
           <div class="col">
             <div class="card shadow-sm">
-              <% if video.video.attached? %>
-                <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+              <% if video.image.attached? %>
+                <%= image_tag video.image %>
+              <% else %>
+                <%= image_tag 'no_image' %>
+              <% end %>
                 <div class="card-body">
                   <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
                   <p class="card-text">説明：<%= video.explanation %></p>
                   <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
                   <span>|コメント件数：<%= video.comments.count %>|</span>
                 </div>
-              <% end %>
             </div>
           </div>
         <% end %>

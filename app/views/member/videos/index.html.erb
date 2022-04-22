@@ -6,8 +6,12 @@
 <div class="card-list-container">
   <% @videos.each do |video| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <% if video.video.attached? %>
-      <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+    <% if video.image.attached? %>
+      <!-- <video src="<%#= rails_blob_path(video.video) %>" type="video/mp4" controls></video> -->
+      <%= image_tag video.image %>
+    <% else %>
+      <%= image_tag 'no_image' %>
+    <% end %>
     <div class="card-body">
       <div class="row">
         <div class="col-2">
@@ -24,7 +28,7 @@
           <p class="card-text">説明：<%= video.explanation %></p>
         </div>
       </div>
-    <% end %>
+    <%# end %>
     </div>
   </div>
   <% end %>

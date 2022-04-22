@@ -15,8 +15,14 @@
           <div class="form-body p-4">
             <%= form_with model: @video, local: true do |form| %>
             <div class="p-2">
-              <!--投稿フォーム-->
-              <%= form.file_field :video %>
+              <h5 class="sabu-name shadow_green">Video</h5>
+                <!--投稿フォーム-->
+                <%= form.file_field :video %>
+            </div>
+            <div class="p-2">
+              <h5 class="sabu-name shadow_green">サムネイル</h5>
+                <!--サムネ投稿フォーム-->
+                <%= form.file_field :image %>
             </div>
             <div class="p-2">
               <!--タイトル-->

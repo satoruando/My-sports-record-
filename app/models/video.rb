@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
   has_one_attached :video
+  has_one_attached :image
 
   belongs_to :member
   has_many :comments, dependent: :destroy
