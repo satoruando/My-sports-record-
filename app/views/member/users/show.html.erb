@@ -1,6 +1,6 @@
 
 <!-- ユーザーの詳細 -->
-<div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
+<div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5 name-name">
   <% if @member.image.attached? %>
     <%= image_tag @member.image, size: "100x100" %>
   <% else %>
@@ -30,7 +30,7 @@
                 <%= image_tag 'no_image' %>
               <% end %>
                 <div class="card-body">
-                  <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
+                  <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
                   <p class="card-text">説明：<%= video.explanation %></p>
                   <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
                   <span>|コメント件数：<%= video.comments.count %>|</span>

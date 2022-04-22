@@ -16,23 +16,33 @@
     <div class="card-list-container py-4">
       <% @videos.each do |video| %>
       <div class="card w-50 mx-auto mt-4 shadow-lg">
-        <% if video.video.attached? %>
-          <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+        <% if video.image.attached? %>
+          <%= image_tag video.image %>
+        <% else %>
+          <%= image_tag 'no_image' %>
+        <% end %>
           <div class="card-body">
             <div class="row">
               <div class="col-2">
+                <% if video.member.image.attached? %>
+                  <%= image_tag video.member.image, size: "60x60" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "60x60" %>
+                <% end %>
               </div>
               <div class="col-10">
                 <p class="card-title">
-                  <%= link_to video.title, video_path(video.id) %>
+                  タイトル:<%= link_to video.title, video_path(video.id) %>
                 </p>
                 <p class="card-text">説明：<%= video.explanation %></p>
               </div>
             </div>
           </div>
-        <% end %>
       </div>
       <% end %>
+      <div class="p-5">
+        <%= paginate @videos %>
+      </div>
     </div>
   <% end %>
 </table>

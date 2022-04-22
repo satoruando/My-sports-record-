@@ -4,7 +4,7 @@ class Member::UsersController < ApplicationController
   def show
     @genres = Genre.all
     @member = Member.find(params[:id])
-    @videos = Video.where(member_id: params[:id]).order(id: "DESC").page(params[:page])#ページネーション
+    @videos = Video.where(member_id: params[:id]).order(id: "DESC").page(params[:page]).per(6)#ページネーション
   end
 
   def edit

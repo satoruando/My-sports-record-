@@ -16,7 +16,7 @@
             </div>
             <div class="col-10">
                 <p class="card-title">
-                  <%= @video.title %>
+                  タイトル：<%= @video.title %>
                 </p>
                 <p class="card-text">説明：<%= @video.explanation %></p>
                 <span>|<%= @video.created_at.strftime('%Y/%m/%d') %></span>
@@ -26,7 +26,7 @@
                 </span>
                 <span>
                   <% if @video.member == current_member %>
-                    |<%= link_to "削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|
+                    |<%= link_to "投稿削除", video_path(@video.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>|
                   <% end %>
                   </span>
               <%#　コメント一覧　%>

@@ -8,7 +8,7 @@ class Member::SearchesController < ApplicationController
     if @range == "Member"
       @members = Member.looks(params[:search], params[:word])
     else
-      @videos = Video.looks(params[:search], params[:word])
+      @videos = Video.looks(params[:search], params[:word]).order(id: "DESC").page(params[:page])#順番・ページネーション
     end
   end
 
