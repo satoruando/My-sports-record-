@@ -1,8 +1,11 @@
 <%= notice %>
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 shadow_green mozi-color">Welcome to My sports record!!</h1>
+  <div class="px-4 py-5 my-5 text-center top-title">
+    <!--文字フォント-->
+    <font face="cursive">
+      <h1 class="display-5 shadow_green mozi-color">Welcome to My sports record!!</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4 text-white shadow_green">自分自身のスポーツ動画を保存しよう！</p>
+    </font>
       <div class="btn-wrapper col-10 mx-auto">
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <%= link_to "Log-in", new_member_session_path, class: "btn btn-outline-secondary btn-lg px-4" %>
