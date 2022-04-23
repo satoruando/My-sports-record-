@@ -1,17 +1,12 @@
 <%= notice %>
-  <div class="px-4 py-5 my-5 text-center top-title">
-    <!--文字フォント-->
-    <font face="cursive">
-      <h1 class="display-5 shadow_green mozi-color">Welcome to My sports record!!</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4 text-white shadow_green">自分自身のスポーツ動画を保存しよう！</p>
-    </font>
-      <div class="btn-wrapper col-10 mx-auto">
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <%= link_to "Log-in", new_member_session_path, class: "btn btn-outline-secondary btn-lg px-4" %>
-            <%= link_to "Sign-up", new_member_registration_path, class: "btn btn-outline-secondary btn-lg px-4" %>
-            <%= link_to 'ゲストログイン（閲覧用）', member_guest_sign_in_path, class: "btn btn-outline-secondary btn-lg px-4", method: :post %>
-          </div>
+  <div class="first-view top-title">
+    <div class="first-view-text">
+      <h1>Welcome to My sports record!!</h1>
+      <p>自分自身のスポーツ動画を保存しよう！</p>
+      <div class="link-button-area">
+        <%= link_to "Log-in", new_member_session_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+        <%= link_to "Sign-up", new_member_registration_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+        <%= link_to 'ゲストログイン（閲覧用）', member_guest_sign_in_path, class: "btn btn-outline-secondary btn-lg px-4", method: :post %>
       </div>
     </div>
   </div>

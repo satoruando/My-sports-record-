@@ -1,48 +1,46 @@
-<h3 class="text-center p-3 sabu-name">検索一覧</h3>
-
-<table class="table table-hover table-inverse">
-  <!--検索対象モデルがMemberの時 -->
-  <% if @range == "Member" %>
-    <tbody>
-      <% @members.each do |member| %>
-        <tr>
-          <td><%= link_to member.last_name, user_path(member.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-
-    <!--検索対象モデルがVideoの時 -->
-    <div class="card-list-container py-4">
-      <% @videos.each do |video| %>
-      <div class="card w-50 mx-auto mt-4 shadow-lg">
-        <% if video.image.attached? %>
-          <%= image_tag video.image %>
-        <% else %>
-          <%= image_tag 'no_image' %>
+<div class="back-color">
+  <h3 class="title-font text-center p-3">Search list</h3>
+  
+  <table class="table table-hover table-inverse">
+    <!--検索対象モデルがMemberの時 -->
+    <% if @range == "Member" %>
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= link_to member.last_name, user_path(member.id) %></td>
+          </tr>
         <% end %>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-2">
-                <% if video.member.image.attached? %>
-                  <%= image_tag video.member.image, size: "60x60" %>
-                <% else %>
-                  <%= image_tag 'no_image', size: "60x60" %>
-                <% end %>
+      </tbody>
+    <% else %>
+  
+      <!--検索対象モデルがVideoの時 -->
+      <h3 class="title-font text-center">New</h3>
+      <div class="album py-4">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% @videos.each do |video| %>
+              <div class="col p-3">
+                <div class="card shadow-sm">
+                  <% if video.image.attached? %>
+                  <div class="samu" style="background-image: url(<%= rails_blob_path(video.image) %>)"></div>
+                  <% else %>
+                  <div class="samu"></div>
+                  <% end %>
+                    <div class="card-body">
+                      <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
+                      <p class="card-text">説明：<%= video.explanation %></p>
+                      <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                      <span>|コメント件数：<%= video.comments.count %>|</span>
+                    </div>
+                </div>
               </div>
-              <div class="col-10">
-                <p class="card-title">
-                  タイトル:<%= link_to video.title, video_path(video.id) %>
-                </p>
-                <p class="card-text">説明：<%= video.explanation %></p>
-              </div>
-            </div>
+            <% end %>
           </div>
-      </div>
-      <% end %>
-      <div class="p-5">
+        </div>
+        <div class="p-5">
         <%= paginate @videos %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</table>
+    <% end %>
+  </table>
+<>

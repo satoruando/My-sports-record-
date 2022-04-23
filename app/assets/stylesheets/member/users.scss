@@ -1,3 +1,27 @@
 // Place all the styles related to the member/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.title-font {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+}
+
+.back-color {
+  background-color: #fdf9f2;
+}
+
+
+.samu {
+  background-size: cover;
+  background-position: center;
+  width: 348px;
+  height: 348px;
+  background-image: image-url("no_image.jpeg");
+}
+
+.profile-container {
+  background-color: rgba(255, 235, 235,.5);
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+}
