@@ -1,35 +1,37 @@
 
-<h3 class="text-center p-3 sabu-name shadow_green">いいね一覧</h3>
-  <div class="album py-4">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <% @nice_videos.each do |video|%>
-          <div class="col">
-            <div class="card shadow-sm">
-              <% if video.video.attached? %>
-                <video src="<%= rails_blob_path(video.video) %>" type="video/mp4" controls></video>
+<div class="back-color">
+  <h3 class="title-font text-center">New</h3>
+    <div class="album py-4">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% @nice_videos.each do |video| %>
+            <div class="col p-3">
+              <div class="card shadow-sm">
+                <% if video.image.attached? %>
+                  <div class="samu" style="background-image: url(<%= rails_blob_path(video.image) %>)"></div>
+                <% else %>
+                  <div class="samu"></div>
+                <% end %>
                 <div class="card-body">
-                  <div class="col-2">
+                  <p>
                     <% if video.member.image.attached? %>
                       <%= image_tag video.member.image, size: "60x60" %>
                     <% else %>
                       <%= image_tag 'no_image', size: "60x60" %>
                     <% end %>
-                  </div>
-                  <div class="col-10">
-                    <p class="card-title"><%= link_to video.title, video_path(video.id) %></p>
-                    <p class="card-text">説明：<%= video.explanation %></p>
-                    <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
-                    <span>|コメント件数：<%= video.comments.count %>|</span>
-                  </div>
+                  </p>
+                  <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
+                  <p class="card-text">説明：<%= video.explanation %></p>
+                  <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                  <span>|コメント件数：<%= video.comments.count %>|</span>
                 </div>
-              <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-5">
+        <%= paginate @nice_videos %>
       </div>
     </div>
-    <div class="p-5">
-    <%= paginate @nice_videos %>
-    </div>
-  </div>
+</div>

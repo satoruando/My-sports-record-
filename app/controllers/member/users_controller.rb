@@ -33,7 +33,7 @@ class Member::UsersController < ApplicationController
   def nices
     @member = Member.find(params[:id])
     nices= Nice.where(member_id: @member.id).pluck(:video_id)
-    @nice_videos = Kaminari.paginate_array(Video.find(nices)).page(params[:page]).per(1) # FIXME: per
+    @nice_videos = Kaminari.paginate_array(Video.find(nices)).page(params[:page]).per(6) # FIXME: per
   end
 
   private

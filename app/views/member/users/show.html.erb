@@ -10,37 +10,39 @@
   <h3><%= @member.first_name %></h3>
   <div class="mt-auto">
     <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    <p><%= link_to "Profile editing", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
     <% end %>
-    <p><%=link_to"いいね記事",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    <p><%=link_to"Nice story",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
   </div>
 </div>
 
 <!-- ユーザーの投稿動画一覧 -->
-<h3 class="text-center p-3 sabu-name shadow_green">MY MOVE</h3>
-  <div class="album py-4">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <% @videos.each do |video| %>
-          <div class="col">
-            <div class="card shadow-sm">
-              <% if video.image.attached? %>
-                <%= image_tag video.image %>
-              <% else %>
-                <%= image_tag 'no_image' %>
-              <% end %>
-                <div class="card-body">
-                  <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
-                  <p class="card-text">説明：<%= video.explanation %></p>
-                  <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
-                  <span>|コメント件数：<%= video.comments.count %>|</span>
-                </div>
+<div class="back-color">
+  <h3 class="title-font text-center">MY MOVE</h3>
+    <div class="album py-4">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% @videos.each do |video| %>
+            <div class="col p-3">
+              <div class="card shadow-sm">
+                <% if video.image.attached? %>
+                  <div class="samu" style="background-image: url(<%= rails_blob_path(video.image) %>)"></div>
+                <% else %>
+                  <div class="samu"></div>
+                <% end %>
+                  <div class="card-body">
+                    <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
+                    <p class="card-text">説明：<%= video.explanation %></p>
+                    <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                    <span>|コメント件数：<%= video.comments.count %>|</span>
+                  </div>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-5">
+      <%= paginate @videos %>
       </div>
     </div>
-    <div class="p-5">
-    <%= paginate @videos %>
-    </div>
-  </div>
+</div>
