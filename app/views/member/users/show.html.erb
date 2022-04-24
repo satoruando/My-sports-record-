@@ -1,2 +1,50 @@
-<h1>Member::Users#show</h1>
-<p>Find me in app/views/member/users/show.html.erb</p>
+
+<!-- ユーザーの詳細 -->
+<div class="profile-container border-bottom">
+  <div class="w-75 d-flex mx-auto justify-content-around align-items-center py-5 name-name">
+    <% if @member.image.attached? %>
+      <%= image_tag @member.image, size: "100x100" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "100x100" %>
+    <% end %>
+    <h3><%= @member.last_name %></h3>
+    <h3><%= @member.first_name %></h3>
+    <div class="mt-auto">
+      <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
+      <p><%= link_to "Profile editing", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+      <% end %>
+      <p><%=link_to"Nice story",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    </div>
+  </div>
+</div>
+
+<!-- ユーザーの投稿動画一覧 -->
+<div class="back-color">
+  <h3 class="title-font text-center">MY MOVE</h3>
+    <div class="album py-4">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% @videos.each do |video| %>
+            <div class="col p-3">
+              <div class="card shadow-sm">
+                <% if video.image.attached? %>
+                  <div class="samu" style="background-image: url(<%= rails_blob_path(video.image) %>)"></div>
+                <% else %>
+                  <div class="samu"></div>
+                <% end %>
+                  <div class="card-body">
+                    <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>
+                    <p class="card-text">説明：<%= video.explanation %></p>
+                    <span>|<%= video.created_at.strftime('%Y/%m/%d') %></span>
+                    <span>|コメント件数：<%= video.comments.count %>|</span>
+                  </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-5">
+      <%= paginate @videos %>
+      </div>
+    </div>
+</div>

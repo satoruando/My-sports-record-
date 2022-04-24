@@ -1,3 +1,66 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.first-view {
+  height: calc(100vh - 110px);
+  background-image: url('siba2.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.first-view-text {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #4b2c14;
+  top: 250px;
+  position: absolute;
+}
+
+.first-view-text h1 {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 56px;
+  font-height: 72px;
+}
+
+.first-view-text p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.link-button-area {
+  text-align: center;
+  margin-top: 150px;
+}
+
+@media (max-width: 800px) {
+  .first-view {
+    height: calc(100vh - 50px);
+    background-image: url('siba2.jpeg');
+    align-items: flex-start;
+  }
+
+  .first-view-text {
+    padding-left: 20px;
+    padding-top: 60px;
+  }
+
+  .first-view-text h1 {
+    font-size: 36px;
+    font-height: 48px;
+  }
+
+  .first-view-text p {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+}

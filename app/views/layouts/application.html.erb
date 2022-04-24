@@ -2,15 +2,85 @@
 <html>
   <head>
     <title>PFApp</title>
+    <!--スマートフォン用表示-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--stylesheetsをいじる際に記載する-->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span class="header-logo shadow_White">My sports record</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto shadow_White">
+              <%# ユーザーログイン後のヘッダー%>
+              <% if member_signed_in? %>
+                <li><%= link_to 'Home', videos_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'My page', user_path(current_member.id), class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'Post form', new_video_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'Log out', destroy_member_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+              <%# 管理者ログイン後のヘッダー　%>
+              <% elsif admin_signed_in? %>
+                <li><%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'Genre list', admin_genres_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+              <%# ログイン前のヘッダー(ユーザー、管理者共通)　%>
+              <% else %>
+                <li><%= link_to "about", about_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to 'sign up', new_member_registration_path, class: 'nav-link text-dark' %></li>
+                <li><%= link_to "Login", new_member_session_path, class: 'nav-link text-dark' %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <nav class="site-menu">
+        <ul>
+        <%# ユーザーログイン後のヘッダー%>
+        <% if member_signed_in? %>
+          <li><%= link_to 'Home', videos_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to 'マイページ', user_path(current_member.id), class: 'nav-link text-dark' %></li>
+          <li><%= link_to '投稿フォーム', new_video_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+        <%# 管理者ログイン後のヘッダー　%>
+        <% elsif admin_signed_in? %>
+          <li><%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+        <%# ログイン前のヘッダー(ユーザー、管理者共通)　%>
+        <% else %>
+          <li><%= link_to "about", about_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to '新規登録', new_member_registration_path, class: 'nav-link text-dark' %></li>
+          <li><%= link_to "ログイン", new_member_session_path, class: 'nav-link text-dark' %></li>
+        <% end %>
+        <%# 検索機能%>
+        <%= render 'member/searches/search', members: @records %>
+        </ul>
+      </nav>
+    </footer>
+
   </body>
 </html>
+
+

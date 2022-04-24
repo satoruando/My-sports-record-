@@ -1,0 +1,11 @@
+
+  <div class="text-center">
+    <p class="title-genre">Genre search</p>
+    <div class="genre-name">
+        <% genres.each do |genre| %>
+          <%= link_to videos_path(genre_id: genre.id) do %>
+            <span class="text-dark px-2">・<%= genre.genre_name %></span>
+          <% end %>
+        <% end %>
+    </div>
+  </div>

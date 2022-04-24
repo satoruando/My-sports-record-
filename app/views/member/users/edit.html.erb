@@ -1,2 +1,31 @@
-<h1>Member::Users#edit</h1>
-<p>Find me in app/views/member/users/edit.html.erb</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center px-0 my-5">
+        <h5 class="title-font text-dark p-4 mb-0">Profile editing</h5><!--背景色bg-light-->
+          <div class="title-font form-body p-4">
+          <%= form_with model: @member, url: user_path(current_member) do |f| %>
+            <label for="inputImage">ProfileImage</label> <br>
+            <!--プロフィール画像-->
+            <%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %> <br>
+          <div class="p-2">
+            <label for="inputName">last_name</label> <br>
+            <!--名字-->
+            <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"姓"%> <br>
+          </div>
+          <div class="p-2">
+            <label for="inputName">first_name</label> <br>
+            <!--名前-->
+            <%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"名"%> <br>
+          </div>
+          <div class="p-2">
+            <!--ボタン-->
+            <%= f.submit "Save", class: 'btn btn-sm btn-success col-md-6' %>
+          </div>
+          <div class="p-2">
+            <!--退会ボタン-->
+            <%= link_to "Withdraw", users_unsubscribe_users_path, class: 'btn btn-sm btn-danger col-md-6' %>
+          </div>
+
+          <% end %>
+          </div>
+      </div>

@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+::berfore,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+// リンク装飾
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  background-color: #ffffff;
+}
+// 画像設定
+img {
+  max-width: 100%;
+}
+
+
+.header-logo {
+  display: block;
+  width: 170px;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.navbar-nav {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+}
+
+.footer {
+  color: #ffffff;
+  background-color: #24211b;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-tel {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 28px;
+}
+
+.footer-time {
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+@media (max-width: 800px) {
+  .main {
+    padding-top: 50px;
+  }
+
+  .footer-tel {
+    font-size: 20px;
+  }
+
+}
+
+.pagination {
+  justify-content: center;
+}
