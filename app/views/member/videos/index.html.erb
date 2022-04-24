@@ -14,9 +14,9 @@
               <div class="col p-3">
                 <div class="card shadow-sm">
                   <% if video.image.attached? %>
-                  <div class="samu" style="background-image: url(<%= rails_blob_path(video.image) %>)"></div>
+                    <%= image_tag video.image, class: "samu" %>
                   <% else %>
-                  <div class="samu"></div>
+                    <div class="samu"></div>
                   <% end %>
                     <div class="card-body">
                       <p class="card-title">タイトル:<%= link_to video.title, video_path(video.id) %></p>

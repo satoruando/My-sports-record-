@@ -12,10 +12,13 @@
 }
 
 .samu {
+  display: block;
   background-size: cover;
   background-position: center;
-  width: 348px;
-  height: 348px;
+  max-width: 100%;
+  width: 100%;
+  height: calc((1140px - 16px * 3) / 3 - 18px);
+  object-fit: cover;
   background-image: image-url("no_image.jpeg");
 }
 
@@ -26,4 +29,28 @@
 .video-container {
   font-family: 'Shadows Into Light', cursive;
   font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .samu {
+       height: calc((960px - 16px * 3) / 3 - 18px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .samu {
+       height: calc((720px - 16px * 3) / 3 - 18px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .samu {
+       height: calc((540px - 16px * 2) / 2 - 18px);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .samu {
+       height: calc(100% - 16px * 2);
+    }
 }

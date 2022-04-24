@@ -25,6 +25,7 @@ class Member::VideosController < ApplicationController
 
   def show
     @genres = Genre.all
+    @deleted_member_ids = Member.where(is_deleted: true).ids
     @video = Video.find(params[:id])
     @comment = Comment.new
   end

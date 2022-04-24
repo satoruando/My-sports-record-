@@ -21,7 +21,7 @@
                   </p>
                   <p class="card-text">説明：<%= @video.explanation %></p>
                   <span>|<%= @video.created_at.strftime('%Y/%m/%d') %></span>
-                  <span>|コメント件数：<%= @video.comments.count %>|</span>
+                  <span>|コメント件数：<%= @video.comments.where.not(member_id: Member.where(is_deleted: true).ids).size  %>|</span>
                   <span id="video_<%= @video.id %>">
                   <%= render 'member/nices/nice_btn', video: @video %>
                   </span>
@@ -34,6 +34,7 @@
                 <div class="comments card-text">
                   <h4 class="mt-3">コメント</h4>
                   <% @video.comments.each do |comment| %>
+                    <% next if @deleted_member_ids.include?(comment.member_id) %>
                     <div class="media border mb-3">
                       <div class="align-self-center mx-3 fallback">
                       <% if comment.member.image.attached? %>
