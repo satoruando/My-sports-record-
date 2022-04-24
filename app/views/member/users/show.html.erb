@@ -1,18 +1,20 @@
 
 <!-- ユーザーの詳細 -->
-<div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5 name-name">
-  <% if @member.image.attached? %>
-    <%= image_tag @member.image, size: "100x100" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "100x100" %>
-  <% end %>
-  <h3><%= @member.last_name %></h3>
-  <h3><%= @member.first_name %></h3>
-  <div class="mt-auto">
-    <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
-    <p><%= link_to "Profile editing", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+<div class="profile-container border-bottom">
+  <div class="w-75 d-flex mx-auto justify-content-around align-items-center py-5 name-name">
+    <% if @member.image.attached? %>
+      <%= image_tag @member.image, size: "100x100" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "100x100" %>
     <% end %>
-    <p><%=link_to"Nice story",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    <h3><%= @member.last_name %></h3>
+    <h3><%= @member.first_name %></h3>
+    <div class="mt-auto">
+      <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
+      <p><%= link_to "Profile editing", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+      <% end %>
+      <p><%=link_to"Nice story",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+    </div>
   </div>
 </div>
 

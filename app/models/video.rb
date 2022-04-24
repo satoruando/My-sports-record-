@@ -34,7 +34,9 @@ class Video < ApplicationRecord
 
   #サイズバリデーション
   def size_validation
-    errors.add(:video,'の容量が大きいです') if video.blob.byte_size > 200.megabytes#約２分
+    if video.present?
+      errors.add(:video,'の容量が大きいです') if video.blob.byte_size > 100.megabytes#約２分
+    end
   end
 
 end
