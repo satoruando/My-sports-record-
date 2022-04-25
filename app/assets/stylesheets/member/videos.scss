@@ -31,6 +31,10 @@
   font-weight: bold;
 }
 
+textarea#comment_comment {
+  width: 80%;
+}
+
 @media screen and (max-width: 1200px) {
     .samu {
        height: calc((960px - 16px * 3) / 3 - 18px);
