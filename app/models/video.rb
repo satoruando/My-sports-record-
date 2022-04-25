@@ -12,6 +12,8 @@ class Video < ApplicationRecord
   validates :video, presence: true
   #サイズバリデーション
   validate :size_validation
+  #ビデオタイプバリデーション
+  validate :video_type
 
   def niced_by?(member)
     nices.exists?(member_id: member.id)
@@ -36,6 +38,13 @@ class Video < ApplicationRecord
   def size_validation
     if video.present?
       errors.add(:video,'の容量が大きいです') if video.blob.byte_size > 200.megabytes#約２分
+    end
+  end
+
+  #ビデオタイプバリデーション
+  def video_type
+    if !video.blob.content_type.in?(%('.mp4'))
+      errors.add(:videos, 'はmp4形式でアップロードしてください')
     end
   end
 
