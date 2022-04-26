@@ -48,6 +48,13 @@ Things you may want to cover:
 
 ## 設計書
 <a href="https://docs.google.com/spreadsheets/d/1EzXhWHmpcdFzhJPyWZPAptUUrJEPXii1WtZ_W_rFFWA/edit#gid=1773513600">WBSシート</a>
+<a href="https://app.diagrams.net/#G1vH_u8jGU8VdKDV2C8p3w2jD21sa82DsK">フレイムワーク</a>
+<a href="https://docs.google.com/spreadsheets/d/1ejU3ZLMs9VhOAwMEddgbEoNZo9Jm4o15OBi4UTqwFRs/edit#gid=246872453">テーブル提議書</a>
+<a href="https://docs.google.com/spreadsheets/d/1uVcMJbE1qcq0hns3-ySDk6Yc6DTogiy5gx6rS5roIEk/edit#gid=2133469642">アプリケーション詳細設計</a>
+<a href="https://app.diagrams.net/#G17qhhNqlkcg2wx0-HOZDBaDkR_q3R4ydW">ER図</a>
+<a href="https://app.diagrams.net/#G1otKhneCrn8hdKmkdOWozAbCFXnVRxfPI">UI-Flows</a>
+<a href="https://docs.google.com/spreadsheets/d/11DBozUoQe_OikuYVq22ryuQGGSmFIGNv/edit#gid=2072448154">テスト仕様書</a>
+
 
 ## 開発環境
 - OS：Linux(CentOS)
