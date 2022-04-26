@@ -28,7 +28,7 @@ Things you may want to cover:
 ## サイト概要
 ### サイトテーマ
 スポーツ動画を見て、振り返りやモチベーションup!!
-<img src="readme.png">
+<img src="assets/images/readme.png">
 
 ### テーマを選んだ理由
 今回私がこのPFのテーマを選んだ理由は、２点あります。
