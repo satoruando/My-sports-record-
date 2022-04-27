@@ -67,7 +67,7 @@
                     <div class="form-group">
                       <%= form_with model: [@video, @comment] do |f| %>
                         <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-                        <%= f.submit "送信する" %>
+                        <%= f.submit "送信する", class: 'btn btn-sm btn-success' %>
                       <% end %>
                     </div>
                 </div>
