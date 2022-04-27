@@ -43,7 +43,7 @@ class Video < ApplicationRecord
 
   #ビデオタイプバリデーション
   def video_type
-    if !video.blob.content_type.in?(%('.mp4'))
+    if video.blob.content_type != "video/mp4"
       errors.add(:videos, 'はmp4形式でアップロードしてください')
     end
   end
