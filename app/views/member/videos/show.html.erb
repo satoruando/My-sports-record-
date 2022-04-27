@@ -32,9 +32,9 @@
                   </span>
                   <span id="video_<%= @video.id %>">
                     <%= render 'member/nices/nice_btn', video: @video %>
-                     ｜
                   </span>
                   <span>
+                     ｜
                     <% if @video.member == current_member %>
                       <%= link_to "投稿削除", video_path(@video.id), method: :delete, class: 'btn btn-sm btn-warning', "data-confirm" => "本当に削除しますか？" %>
                     <% end %>
