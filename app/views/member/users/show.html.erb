@@ -11,7 +11,9 @@
     <h3><%= @member.first_name %></h3>
     <div class="mt-auto">
       <% if @member.first_name != "太郎" && @member.last_name != "ゲスト" %>
+      <% if current_member == @member %>
       <p><%= link_to "Profile editing", edit_user_path(@member), class: 'btn btn-sm btn-success' %></p>
+      <% end %>
       <% end %>
       <p><%=link_to"Nice story",nices_user_path(@member), class: 'btn btn-sm btn-success' %></p>
     </div>

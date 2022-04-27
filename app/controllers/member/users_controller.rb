@@ -9,6 +9,9 @@ class Member::UsersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
+    if current_member != @member
+      redirect_to user_path(@member.id)
+    end
   end
 
   def update
